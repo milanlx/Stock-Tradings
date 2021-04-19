@@ -4,7 +4,7 @@ import json
 
 
 # global variable
-api_key = "1845e3929e19329d2be580fc65e1970d"
+api_key = ""
 selected_keys = ["symbol", "price", "mktCap", "range", "description", "industry",
                  "sector", "country", "state", "city", "ipoDate"]
 
@@ -12,7 +12,7 @@ selected_keys = ["symbol", "price", "mktCap", "range", "description", "industry"
 ### test
 
 # load from pickle
-available_symbols = loadFromPickle("./Processed_Data/fmp_available_symbols.pickle")
+available_symbols = loadFromPickle("")
 available_symbols_list = []
 for item in available_symbols:
     symbol = item["symbol"]
@@ -20,7 +20,7 @@ for item in available_symbols:
 
 
 # get stock ticker list
-ticker_file_path = "Files/Description/industrials_aerospace_and_defense.txt"
+ticker_file_path = ""
 stock_ticker_list = []
 with open(ticker_file_path, "r") as f:
     for line in f:
@@ -33,8 +33,7 @@ with open(ticker_file_path, "r") as f:
             print("not in list:: " + ticker)
 
 sector = ticker_file_path.split("/")[2].split(".")[0]
-file_path = "./Processed_Data/"+sector+".csv"
-#stock_ticker_list = ["DT", "FB", "SMAR", "WORK"]
+file_path = ""
 summary_list = get_stock_summary_list(api_key, stock_ticker_list, selected_keys)
 for summary in summary_list:
     print(summary)
