@@ -29,8 +29,8 @@ class Option:
     # quote price
     def quotePrice(self, currDate, iv):
         cDate = self._convert_date(currDate)
-        delta = self.expDate - cDate
-        t = delta.days/365
+        diff = self.expDate - cDate
+        t = diff.days/365
         self._update_iv(iv)
         const1 = (self.r*t + self.v**2*t/2 + math.log(self.s0/self.k)) / (self.v*math.sqrt(t))
         const2 = (self.r*t - self.v**2*t/2 + math.log(self.s0/self.k)) / (self.v*math.sqrt(t))
@@ -43,8 +43,8 @@ class Option:
     # quote Greeks
     def quoteGreeks(self, currDate, iv):
         cDate = self._convert_date(currDate)
-        delta = self.expDate - cDate
-        t = delta.days/365
+        diff = self.expDate - cDate
+        t = diff.days/365
         self._update_iv(iv)
         const1 = (self.r*t + self.v**2*t/2 + math.log(self.s0/self.k)) / (self.v*math.sqrt(t))
         const2 = (self.r*t - self.v**2*t/2 + math.log(self.s0/self.k)) / (self.v*math.sqrt(t))
@@ -65,7 +65,6 @@ class Option:
 
 
 # main (parameters)
-
 ticker = "XXX"
 currentPrice = 100
 strikePrice = 100
