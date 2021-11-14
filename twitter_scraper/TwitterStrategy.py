@@ -14,8 +14,8 @@ access_token_secret = ""
 api = get_api(consumer_key, consumer_secret, access_token, access_token_secret)
 
 # search tweets
-search_words = "$CHWY"
-date_since = "2020-12-10"
+search_words = "$MSFT"
+date_since = "2021-11-10"
 item_num = 100
 #tweet_list = search_keywords(api, search_words, date_since, item_num)
 #for tweet in tweet_list:
@@ -23,14 +23,17 @@ item_num = 100
 
 
 # search user
-user_name = ""
-#user_info = search_user_info(api, user_name)
+screen_name = ""
+user_info = search_user_info(api, screen_name)
 #for key in user_info.keys():
 #    print(key + " : " + str(user_info[key]))
 
 
+# get list of people following
+friends_screen_name = get_friends(api, screen_name)
+
 # search all tweets from friends
-date = "2021-03-31"
+date = "2021-11-12"
 total_tweets = []
 for screen_name in friends_screen_name:
     print(screen_name)
