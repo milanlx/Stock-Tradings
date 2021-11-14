@@ -95,6 +95,17 @@ def search_tweets_by_username(api, screen_name, date):
     return tweet_list
 
 
+def get_friends(api, screen_name):
+    """ search people following given screen_name, return as a list
+    """
+    friends_screen_name = []
+    friends = api.friends(screen_name)
+    for friend in friends:
+        friends_screen_name.append(friend.screen_name)
+    return friends_screen_name
+
+
+
 def remove_emoji(text):
     """
     remove emoji symbols from tweet
